@@ -42,8 +42,7 @@ export default function Navbar() {
               >
                 <div className="grid grid-cols-1">
                   <a
-                    href="/"
-                    target="_blank"
+                    href="/components/AnimeList/50410"
                     onClick={toggleMenu}
                     className="py-3 px-4 text-xl  hover:text-white "
                   >
@@ -52,8 +51,7 @@ export default function Navbar() {
                   </a>
 
                   <a
-                    href="/"
-                    target="_blank"
+                    href="/components/AnimeList/1735"
                     onClick={toggleMenu}
                     className="py-3 px-4 text-xl border-t-2 border-amber-500 hover:text-white"
                   >
@@ -62,8 +60,7 @@ export default function Navbar() {
                   </a>
 
                   <Link
-                    href="/"
-                    target="_blank"
+                    href="/components/AnimeList/269"
                     onClick={toggleMenu}
                     className="py-3 px-4 text-xl border-t-2 border-amber-500  hover:text-white "
                   >
@@ -72,8 +69,7 @@ export default function Navbar() {
                   </Link>
 
                   <a
-                    href="/"
-                    target="_blank"
+                    href="/components/AnimeList/34096"
                     onClick={toggleMenu}
                     className="py-3 px-4 text-xl border-t-2 border-amber-500  hover:text-white "
                   >
