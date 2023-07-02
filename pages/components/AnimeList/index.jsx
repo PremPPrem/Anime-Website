@@ -22,11 +22,11 @@ export default function Index() {
                 className=" w-full flex items-center justify-center  "
               >
                 <Link href={`/components/AnimeList/${data.mal_id}`}>
-                  <div className="m-[1.2rem] bg-black rounded-[15px] w-[300px] h-[780px] shadow-md hover:shadow-amber-500 hover:shadow-2xl">
+                  <div className="m-[1.2rem] bg-black rounded-[15px] w-[250px] h-[750px] shadow-md hover:shadow-amber-500 hover:shadow-2xl">
                     <img
                       src={data.images.jpg.large_image_url}
                       alt={data.images.jpg.large_image_url}
-                      className="w-[300px] h-[400px] mb-[1rem] rounded-t-[15px]"
+                      className="w-[250px] h-[350px] mb-[1rem] rounded-t-[15px]"
                     />
                     <h1 className="text-[1.5rem] font-extrabold pb-[15px] text-amber-500 pl-[5px]">
                       {data.title}

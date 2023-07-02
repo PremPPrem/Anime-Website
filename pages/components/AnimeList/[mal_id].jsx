@@ -84,8 +84,8 @@ export default function Detail() {
         <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Rating :</span> {anime.rating === null ? "No Rating" : anime.rating}</p>
         <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Score :</span> {anime.score === null ? "No Score" : `${anime.score} / 10 `}</p>
         <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Year :</span> {anime.year === null ? "No Year" : anime.year}</p>
-        <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Aired :</span> {anime.aired?.string === null ? "No Aired" : anime.aired?.string}</p>
-        <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Broadcast :</span> {anime.broadcast?.string === null ? "No Broadcast" : anime.broadcast?.string}</p>
+        <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Aired :</span> {anime.aired?.string === "Not available" || anime.aired?.string === null  ? "No Aired" : anime.aired?.string}</p>
+        <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Broadcast :</span> {anime.broadcast?.string === "Unknown" || anime.broadcast?.string === null ? "No Broadcast" : anime.broadcast?.string}</p>
         <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Duration :</span> {anime.duration === "Unknown" ? "No Duration" : anime.duration}</p>
         <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Episodes :</span> {anime.episodes === null ? "No Episodes" : anime.episodes}</p>
         <p className="text-[#aaa] pb-[10px] sm:pl-[10px]"><span className="font-bold text-amber-500/70">Season :</span> {anime.season === null ? "No Season" : anime.season}</p>
