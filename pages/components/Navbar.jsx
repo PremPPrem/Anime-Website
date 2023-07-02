@@ -80,20 +80,20 @@ export default function Navbar() {
               </div>
             </div>
           </li>
-          <li className={active.pathname == "/0" ? `active` : ""}>
+          <li className={active.pathname == "/SignIn" ? `active` : ""}>
             <Link
-              href="/"
+              href="/SignIn"
               onClick={toggleMenu}
-              className={active.pathname == "/0" ? `active` : " hover:underline"}
+              className={active.pathname == "/SignIn" ? `active` : " hover:underline"}
             >
               Sign In
             </Link>
           </li>
-          <li className={active.pathname == "/0" ? `active` : ""}>
+          <li className={active.pathname == "/SignUp" ? `active` : ""}>
             <Link
-              href="/"
+              href="/SignUp"
               onClick={toggleMenu}
-              className={active.pathname == "/0" ? `active` : "hover:underline"}
+              className={active.pathname == "/SignUp" ? `active` : "hover:underline"}
             >
               Sign Up
             </Link>
