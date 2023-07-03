@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
-import { AiFillEye, AiFillEyeInvisible,AiOutlineCloseCircle } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
 import Loading from "./components/Loading";
 import { UserDataContext } from "./context/UserData";
