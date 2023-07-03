@@ -32,7 +32,8 @@ export const UserDataProvider = ({ children }) => {
             setSuccessLogin(true);
             setTimeout(() => {
               router.push("/components/AfterLogin");
-            }, 500);
+              clearTimeout(setSuccessLogin(false))
+            }, 1000);
           }
         })
         .catch(() => {
@@ -48,9 +49,9 @@ export const UserDataProvider = ({ children }) => {
       setUserName(localStorage.userName);
       setPassword(localStorage.password);
       !!setIsChecked
-    //   setIsChecked({
-    //     isChecked: true
-    //   });
+      // setIsChecked({
+      //   isChecked: true
+      // });
     } 
   }, []);
 

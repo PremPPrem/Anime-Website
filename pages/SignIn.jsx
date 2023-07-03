@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible,AiOutlineCloseCircle } from "react-icons/ai";
 import Link from "next/link";
 import Loading from "./components/Loading";
 import { UserDataContext } from "./context/UserData";
@@ -22,13 +22,23 @@ export default function SignIn() {
   } = useContext(UserDataContext);
 
   const [showPassword, setShowPassword] = useState(false);
+  const [closeAlert,setCloseAlert] = useState(false)
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+
+
   return (
     <div className=" flex justify-center items-center min-h-[75vh] bg-black border-y-2  border-amber-500">
+    {errorLogin && 
+      <div className="z-10 fixed min-w-[280px] rounded-[9px] min-h-[100px]  bg-[#dc3545]">
+      <div className="mt-[2.2rem]"><h1 className=" text-[1.2rem] font-bold text-white text-center ">Username or Password Error</h1></div>
+    </div> }
+    {successLogin && <div className="z-10 fixed min-w-[280px] rounded-[9px] min-h-[100px]  bg-[#198754]">
+      <div className="mt-[2.2rem]"><h1 className=" text-[1.2rem] font-bold text-white text-center ">Login Success</h1></div>
+    </div>}
       <div className=" w-[420px] sm:w-[350px] bg-transparent  border-2 border-amber-500 text-amber-500 rounded-[15px] py-[30px] px-[40px]">
         <form action="" onSubmit={handleSubmit}>
           <h1 className=" text-[36px] text-center font-extrabold">Sign In</h1>
