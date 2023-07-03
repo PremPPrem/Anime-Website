@@ -1,8 +1,14 @@
-import React from "react";
-import { BiSolidUser, BiSolidLockAlt } from "react-icons/bi";
+import React, { useState } from "react";
+import { BiSolidUser } from "react-icons/bi";
+import { AiFillEye,AiFillEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
 
 export default function SignIn() {
+    const [showPassword,setShowPassword] = useState(false)
+
+    const togglePassword = () => {
+        setShowPassword(!showPassword);
+      };
   return (
     <div className=" flex justify-center items-center min-h-[75vh] bg-black border-y-2  border-amber-500">
       <div className=" w-[420px] sm:w-[350px] bg-transparent  border-2 border-amber-500 text-amber-500 rounded-[15px] py-[30px] px-[40px]">
@@ -10,7 +16,7 @@ export default function SignIn() {
           <h1 className=" text-[36px] text-center font-extrabold">Sign In</h1>
           <div className=" w-full h-[50px] my-[30px] mx-[0] relative">
             <input
-              className="w-full h-full bg-transparent pt-[20px] pr-[45px] pb-[20px] pl-[20px]  outline-none border-2 border-white/20 rounded-[40px] focus:border-amber-500 placeholder:text-white/70"
+              className="color_fill w-full h-full bg-transparent pt-[20px] pr-[45px] pb-[20px] pl-[20px]  outline-none border-2 border-white/20 rounded-[40px] focus:border-amber-500 placeholder:text-white/70"
               type="text"
               placeholder="Username or Email"
             />
@@ -18,11 +24,13 @@ export default function SignIn() {
           </div>
           <div className=" w-full h-[50px] my-[30px] mx-[0] relative">
             <input
-              className="w-full  h-full bg-transparent pt-[20px] pr-[45px] pb-[20px] pl-[20px]  outline-none border-2 border-white/20 rounded-[40px] focus:border-amber-500 placeholder:text-white/70"
-              type="password"
+              className="color_fill w-full  h-full bg-transparent pt-[20px] pr-[45px] pb-[20px] pl-[20px]  outline-none border-2 border-white/20 rounded-[40px] focus:border-amber-500 placeholder:text-white/70"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
             />
-            <BiSolidLockAlt className=" absolute right-[20px] top-[50%] translate-y-[-50%]  text-[20px] " />
+             <span className=" absolute right-[20px] top-[50%] translate-y-[-50%]  text-[20px]">
+            {showPassword === false ? <AiFillEye onClick={togglePassword} /> : <AiFillEyeInvisible onClick={togglePassword} />}
+            </span>
           </div>
           <div className=" flex justify-between text-[14.5px] mt-[-15px] my-0 mb-[15px]">
             <label htmlFor="">
