@@ -22,7 +22,6 @@ export default function SignIn() {
   } = useContext(UserDataContext);
 
   const [showPassword, setShowPassword] = useState(false);
-  const [closeAlert,setCloseAlert] = useState(false)
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
