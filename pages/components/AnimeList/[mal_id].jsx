@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import Youtube from "react-youtube";
+
+
 
 export default function Detail() {
   const router = useRouter();
