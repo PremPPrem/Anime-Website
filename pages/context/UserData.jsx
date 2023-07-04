@@ -99,7 +99,7 @@ export const UserDataProvider = ({ children }) => {
 
 
   const logOut = () => {
-    window.localStorage.clear();
+    // window.localStorage.clear();
     router.push("/SignIn");
   };
 
