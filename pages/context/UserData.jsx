@@ -138,7 +138,6 @@ export const UserDataProvider = ({ children }) => {
         alert("Create User");
         router.push("/components/Login");
         console.log(res);
-        userList()
       })
       .catch((err) => {
         console.log(err);
@@ -162,7 +161,6 @@ export const UserDataProvider = ({ children }) => {
       .then((res) => {
         alert("Update Data");
         router.push("/components/Login");
-        userList();
 
 
         console.log(res.data);
