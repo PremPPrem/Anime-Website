@@ -12,8 +12,22 @@ export const UserDataProvider = ({ children }) => {
   const [successLogin, setSuccessLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+
   const baseURL = "https://www.melivecode.com/api/users";
+
   const [user, setUser] = useState([]);
+
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [usernameCreate, setUsernameCreate] = useState("");
+  const [avatar, setAvatar] = useState("");
+
+  const [fnameEdit, setFnameEdit] = useState('');
+  const [lnameEdit, setLnameEdit] = useState('');
+  const [usernameEdit, setUsernameEdit] = useState('');
+  const [avatarEdit, setAvatarEdit] = useState('');
+  const { id } = router.query;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,7 +78,7 @@ export const UserDataProvider = ({ children }) => {
       isChecked: e.target.checked,
     });
   };
-  //After LOgin
+  // Login
   const userList = async () => {
     setLoading(true);
     try {
@@ -72,11 +86,16 @@ export const UserDataProvider = ({ children }) => {
       setUser(res);
       console.log(res);
       setLoading(false);
+      
     } catch (err) {
       console.log(err);
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    userList();
+  }, []);
 
   const deleteUser = async (id) => {
     let data = {
@@ -85,7 +104,7 @@ export const UserDataProvider = ({ children }) => {
     if (window.confirm("Do you want to delete")) {
       await axios
         .delete(`${baseURL}/delete`, {
-          data: data
+          data: data,
         })
         .then(() => {
           userList();
@@ -97,15 +116,66 @@ export const UserDataProvider = ({ children }) => {
     }
   };
 
-
   const logOut = () => {
     // window.localStorage.clear();
     router.push("/SignIn");
   };
 
-  useEffect(() => {
-    userList();
-  }, []);
+  //create User
+  const createUserSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post(`${baseURL}/create`, {
+        fname: fname,
+        lname: lname,
+        username: usernameCreate,
+        password: fname,
+        email: usernameCreate,
+        avatar: avatar,
+      })
+      .then((res) => {
+        alert("Create User");
+        router.push("/components/Login");
+        console.log(res);
+        userList()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
+  //Edit User
+  const EditSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put(`${baseURL}/update`, {
+        id: id,
+        fname: fnameEdit,
+        lname: lnameEdit,
+        username: usernameEdit,
+        password: fnameEdit,
+        email: usernameEdit,
+        avatar: avatarEdit,
+      })
+      .then((res) => {
+        alert("Update Data");
+        router.push("/components/Login");
+        userList();
+
+
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
+
+
+
 
   return (
     <UserDataContext.Provider
@@ -122,7 +192,26 @@ export const UserDataProvider = ({ children }) => {
         isChecked,
         user,
         logOut,
-        deleteUser
+        deleteUser,
+        createUserSubmit,
+        setFname,
+        setLname,
+        setUsernameCreate,
+        setAvatar,
+        fname,
+        lname,
+        usernameCreate,
+        avatar,
+        EditSubmit,
+        fnameEdit,
+        lnameEdit,
+        usernameEdit,
+        avatarEdit,
+        setAvatarEdit,
+        setUsernameEdit,
+        setFnameEdit,
+        setLnameEdit,
+        
       }}
     >
       {children}
